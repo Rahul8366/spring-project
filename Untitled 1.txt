@@ -1,0 +1,106 @@
+class webinitializer extends AbstractAnnotationConfigDispatcherServletInitializer
+
+Annotation used spring mvc
+@componant->annotated over entity/dto classes for which  we need to create object
+@repository-> annotated over the dao classes for which we need  spring to create object for and is also connected to the database.
+@controller-> Annotation over the controller class which will receive all the url request and will be responsible to implement a model and send a view
+@configuration->Annotated over the classes used for configuration where we will be  having all the base packages name
+@Component-Scan-> Annotated over the config class and has an attribute(basepackages) where we can pass the base package name.
+@Autowired->Annotated over an refrence variable to a class type inorder to perform dependency injection.
+
+<---
+JSTL Tags:-
+
+TER: ARE
+
+CITY
+
+=>JSP was able to receive the data fro Annotations used in Spring MVC:- 1.@Component Annotated over the Entity/dto classes for which we need spring to create object for.
+
+2.@Repository Annotated over the dao classes for which we need spring to
+
+create object for and is also connected to the database.
+
+3.@Controller - Annotated over the controller class which will receive all the url requests and will be responsible to implement a model and send a view.
+
+4.@Configuration - Annotated over the class used for configuration where we will be having all the base packages name.  ---->
+
+Model And View ->
+modelview =new Modelview();
+Modelview.setview(); -> ("home.jsp");
+
+
+@RequestMapping 
+->here will be passing the url rquest comming from the frontend
+->it will accept url as string
+etc
+@RequestMapping("/ example");  ->not returning any object simply adding view
+
+|id|name|email|password|EDIT|delete|
+------------------------------------
+|1|rahul|r@g.c|afdds   |EDIT|Delete|
+
+______________________________________________
+|           _________                        |
+| enterId  |_________|                       |
+|            _________                       |
+| enterName |_________|                      |
+|              _________                     |
+| enter email |_________|                    |
+|                 _________                  |
+| enter password |_________|                 |
+|  ________                                  |
+| |register|                                 |
+|____________________________________________|   Student student=new Student();
+
+       (/register)  ----------------------------> (register.jsp)
+       null object                                 (model attribute)----------|
+                                                   Object with value          | 
+                                                                              |
+                                                                              |
+                                                                              |
+                                        (/save)<------------------------------|
+                                  Model Attribute
+                                  Object with value
+                                  data will be saved inside database ----------------->home.jsp
+       
+       
+       //you have to use jpql querry to display all the student
+       
+       JPQL QUEERY
+       
+      ->java persistance queery language 
+      sql-> ("select * from student"); --> select name from student  --> update student set name="ram" where id="101"
+      JPQL ->("select s from student s"); --> select s.name from student s --> update student s set s.name="ram" where s.id="101"
+      
+      
+  Saving Student:-
+  (/)
+  homePage()?
+  setViewName("home.jsp")------------------------------------------->home.jsp
+                                                                  <a href="register"> Add Student </a>
+            __________________________________________________________________|   
+           |                                                              
+       (/regular)                                                   
+    registerStudent()
+    setViewName("register.jsp") 
+    addObject("stud",newStudent); ______________________________________________
+             null object                                                        |
+                                                                          Register.jsp
+                                                                          <f:from action="stud" modelattribute="copyinyourmodelview.addObject"
+                                                                          <f:input>      |
+                                                                          <f:input>      |
+                                                                          .              |
+                                                                          .              |
+                                                                          .              |
+                                                                          </f.form>      |
+                                                                                         |
+                                                                                         |
+         ________________________________________________________________________________|
+        |
+        (/save)
+        saveStudent(@ModelAttribute Student student) {
+		studentdDao.saveStudent(student);
+		setViewName("home.jsp");
+		}
+                                                                          
