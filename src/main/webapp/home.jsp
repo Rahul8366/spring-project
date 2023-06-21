@@ -5,6 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<lic rel="stylesheet" href="home.css">
 </head>
 <body>
 <!-- In this Jsp file we have two ancher tages with 2 href -->
